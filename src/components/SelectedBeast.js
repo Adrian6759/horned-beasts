@@ -21,7 +21,7 @@ class SelectedBeast extends React.Component {
                             bg='dark'
                             text='light'
                             onClick={this.props.openModal}>
-                            <Card.Img src={this.props.selectedBeast.image_url} alt={this.props.selectedBeast.title} />
+                            <Card.Img src={this.props.selectedBeast.image_url} alt={this.props.selectedBeast.title}/>
                             <Card.Body>
                                 <Card.Title>{this.props.selectedBeast.title}</Card.Title>
                                 <Card.Text>

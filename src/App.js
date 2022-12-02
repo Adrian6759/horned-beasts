@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container'
 import dataArray from './data.json';
 import SelectedBeast from './components/SelectedBeast';
+import BeastForm from './components/BeastForm.js'
 
 class App extends React.Component {
   constructor(props) {
@@ -25,6 +26,11 @@ class App extends React.Component {
   closeModal = ()=>{
     this.setState ({displayModal: false})
   }
+
+  filterHorns = hornedItem => {
+    let selectedBeast = dataArray.filter(beast => beast.horns === +(hornedItem))
+    this.setState ({beastdata : selectedBeast})
+  }
   
   render() {
   return (
@@ -36,7 +42,9 @@ class App extends React.Component {
         openModal = {this.openModal}
         selectedBeast = {this.state.selectedBeast}
         displayModal = {this.state.displayModal}
-        closeModal = {this.closeModal}/>
+        closeModal = {this.closeModal}
+        />
+        <BeastForm filterHorns = {this.filterHorns}/>
       <Footer/>
     </Container>
   );
